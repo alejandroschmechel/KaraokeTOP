@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+
 using KaraokeTOP.Droid.Helpers;
 using SQLite.Net.Platform.XamarinAndroid;
 
@@ -17,8 +18,8 @@ namespace KaraokeTOP.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            TabLayoutResource = KaraokeTOP2.Droid.Resource.Layout.Tabbar;
+            ToolbarResource = KaraokeTOP2.Droid.Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
 

@@ -20,7 +20,7 @@ namespace KaraokeTOP.Droid.Helpers
         {
             if (!File.Exists(dbPath))
             {
-                using (var br = new BinaryReader(Application.Context.Assets.Open("people.db3")))
+                using (var br = new BinaryReader(Application.Context.Assets.Open("Songs.db")))
                 {
                     using (var bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
                     {
