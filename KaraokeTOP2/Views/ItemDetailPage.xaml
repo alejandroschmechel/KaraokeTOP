@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="KaraokeTOP.ItemDetailPage" Title="{Binding Title}" BackgroundColor="#5107BA">
+	<StackLayout Spacing="20" Padding="15">
+		<Label Text="{Binding Item.Id}" FontSize="30" TextColor="White" />
+		<Label Text="{Binding Item.SongName}" FontSize="22" TextColor="White" FontAttributes="Bold" />
+        <Label Text="{Binding Item.Artist}" FontSize="18" TextColor="White"/>
+        <Label Text="{Binding Item.Lyrics}" FontSize="18" TextColor="White"/>
+        <Label Text="{Binding Item.Language}" FontSize="18" TextColor="White"/>
+	</StackLayout>
+</ContentPage>

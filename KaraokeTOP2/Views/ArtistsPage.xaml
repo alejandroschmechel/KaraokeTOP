@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="KaraokeTOP.ArtistsPage" 
+    xmlns:Controls="clr-namespace:KaraokeTOP.Renderers;"
+    Title="{Binding Title}" 
+    x:Name="BrowseArtistsPage">
+	<ContentPage.Content>
+    		<StackLayout>
+                <Controls:InfiniteListView x:Name="ArtistListView" ItemsSource="{Binding Artists}" VerticalOptions="FillAndExpand" HasUnevenRows="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" ItemSelected="OnItemSelected" BackgroundColor="#8958CE" SeparatorColor="#FFFFFF" LoadMoreCommand="{Binding LoadMoreArtistsCommand}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Artist}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" TextColor="White" FontSize="18" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </Controls:InfiniteListView>
+    		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

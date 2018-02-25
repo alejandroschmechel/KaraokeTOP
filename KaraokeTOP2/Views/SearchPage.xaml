@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="KaraokeTOP.SearchPage" 
+    xmlns:Controls="clr-namespace:KaraokeTOP.Renderers;"
+    Title="{Binding Title}" 
+    x:Name="SearchItemsPage"
+    BackgroundColor="#5107BA">
+	<ContentPage.Content>
+    		<StackLayout>
+                <Entry x:Name="searchInput" TextColor="#FFFFFF" BackgroundColor="Transparent" PlaceholderColor="#CCCCCC" Placeholder="Nome da Música/Cantor" Margin="10,10" FontSize="14" TextChanged="CheckButton"/>
+                <Button x:Name="searchButton" Text="PESQUISAR" HorizontalOptions="Center" BackgroundColor="#8958CE" TextColor="#FFFFFF" WidthRequest="200" FontSize="18" Clicked="FilterSearchResults" IsEnabled="False"/>
+                <Label x:Name="resultsLabel" Text="Resultados da Busca:" TextColor="#FFFFFF" FontSize="14" Margin="10" IsVisible="False"/>
+                <Controls:InfiniteListView x:Name="ItemsListView" IsVisible="False" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" ItemSelected="OnItemSelected" BackgroundColor="#8958CE" SeparatorColor="#FFFFFF" LoadMoreCommand="{Binding LoadMoreSongsCommand}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Id, StringFormat='#{0}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontAttributes="Bold" FontSize="24" TextColor="White" />
+                                    <Label Text="{Binding SongName}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontAttributes="Bold" FontSize="18" TextColor="White" />
+                                    <Label Text="{Binding Artist}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" TextColor="White" FontSize="14" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </Controls:InfiniteListView>
+    		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>
